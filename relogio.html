@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relógio</title>
+    <style>
+        #clock {
+            font-size: 48px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            // Formata os números menores que 10 com um zero à esquerda
+            hours = (hours < 10 ? "0" : "") + hours;
+            minutes = (minutes < 10 ? "0" : "") + minutes;
+            seconds = (seconds < 10 ? "0" : "") + seconds;
+
+            var clockDiv = document.getElementById('clock');
+            clockDiv.innerText = hours + ":" + minutes + ":" + seconds;
+        }
+
+        setInterval(updateClock, 1000); // Atualiza o relógio a cada segundo
+    </script>
+</body>
+</html>
